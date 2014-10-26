@@ -21,6 +21,9 @@ public class ProtocolFactory
 		case UDP:
 			p = new UDP(byteArray, headerOffset);
 			break;
+		case IPO:
+			p = new IPO(byteArray, headerOffset);
+			break;
 		default:
 			break;
 		}
