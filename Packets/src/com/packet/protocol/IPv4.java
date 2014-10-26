@@ -1,5 +1,7 @@
 package com.packet.protocol;
 
+import java.util.ArrayList;
+
 import com.packet.utilities.Utils;
 import com.packet.protocol.FieldFormatter.FormatType;
 
@@ -7,7 +9,9 @@ public class IPv4 extends Protocol
 {	
 	public IPv4(byte[] byteArray, int headerOffset) 
 	{
-		super(byteArray, headerOffset);
+		mByteArray = byteArray;
+		mHeaderOffset = headerOffset;
+		mFields = new ArrayList<Field>();
 		
 		createFields();
 		

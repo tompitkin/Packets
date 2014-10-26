@@ -81,7 +81,7 @@ public class Packet
 			mPayloadOffset = p.getDataOffset();
 			mPayloadByteSize = p.getDataByteSize();
 			
-			p = ProtocolFactory.createProtocol(p.getNextProtocol(), mByteArray, p.getDataOffset());	
+			p = ProtocolFactory.createProtocol(p.getNextProtocol(), mByteArray, mPayloadOffset, mPayloadByteSize);	
 		}
 	}
 	

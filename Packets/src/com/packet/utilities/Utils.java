@@ -22,4 +22,9 @@ public class Utils
 		data |= b & 0xFF;
 		return data;
 	}
+	
+	public static boolean getBool(byte b)
+	{
+		return (b != 0);
+	}
 }

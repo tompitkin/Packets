@@ -9,9 +9,9 @@ public class FieldFormatter
 	public enum FormatType 
 	{
 		INT, 
-		HEX, 
+		HEX,
 		BYTE_ARRAY, 
-		IP_ADDRESS 
+		IP_ADDRESS
 	}
 	
 	public static String formatField(Field f, Protocol p)

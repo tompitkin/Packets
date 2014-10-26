@@ -15,9 +15,24 @@ public class ProtocolFactory
 		case IPV4:
 			p = new IPv4(byteArray, headerOffset);
 			break;
+		case TCP:
+			p = new TCP(byteArray, headerOffset);
+			break;
+		case UDP:
+			p = new UDP(byteArray, headerOffset);
+			break;
 		default:
 			break;
 		}
+		
+		return p;
+	}
+	
+	public static Protocol createProtocol(Protocol.TYPE type, byte[] byteArray, int headerOffset, int totalByteLength)
+	{
+		Protocol p = createProtocol(type, byteArray, headerOffset);
+		if (p != null)
+			p.mDataByteSize = totalByteLength - p.mHeaderByteSize;
 		
 		return p;
 	}
