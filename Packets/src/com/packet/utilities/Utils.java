@@ -10,7 +10,7 @@ public class Utils
 			if (i > 0)
 				data <<= 8;
 			
-			data |= bytes[i] & 0xFF; //Bitwise AND converts byte into unsigned int
+			data |= getUInt(bytes[i]); 
 		}
 		
 		return data;
@@ -18,9 +18,7 @@ public class Utils
 	
 	public static int getUInt(byte b)
 	{
-		int data = 0;
-		data |= b & 0xFF;
-		return data;
+		return b & 0xFF; //Bitwise AND converts byte into unsigned int
 	}
 	
 	public static boolean getBool(byte b)
