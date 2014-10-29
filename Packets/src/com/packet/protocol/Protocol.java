@@ -49,22 +49,22 @@ public abstract class Protocol
 		return getFieldData(mFields.get(index));
 	}
 	
-	public byte[] getFieldData(Field p)
+	public byte[] getFieldData(Field f)
 	{	
-		if (p == null)
+		if (f == null)
 			return null;
 		
-		int byteStart = mHeaderOffset + p.byteOffset;
-		int byteCount = (int)Math.ceil(p.bitSize / 8.0);
+		int byteStart = mHeaderOffset + f.byteOffset;
+		int byteCount = (int)Math.ceil(f.bitSize / 8.0);
 		
 		byte[] bytes = new byte[byteCount];
 		
-		for (int i = 0; i < p.bitSize; i++)
+		for (int i = 0; i < f.bitSize; i++)
 		{	
-			int shift = 7 - ((i + p.bitOffset) % 8);
-			bytes[i / 8] |= mByteArray[byteStart + ((i + p.bitOffset) / 8)] >> shift & 1;
+			int shift = 7 - ((i + f.bitOffset) % 8);
+			bytes[i / 8] |= mByteArray[byteStart + ((i + f.bitOffset) / 8)] >> shift & 1;
 			
-			if (shift != 0 && i < p.bitSize - 1)
+			if (shift != 0 && i < f.bitSize - 1)
 				bytes[i / 8] <<= 1;
 		}
 		
